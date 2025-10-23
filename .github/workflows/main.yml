@@ -1,0 +1,36 @@
+name: MAUI Unit Tests
+
+on:
+  push:
+    branches:
+      - main
+      - infra/runner-toevoegen
+      - develop
+      - 'feature/**'
+      - 'hotfix/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install .NET SDK 8.0
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.405'
+
+      - name: Check .NET SDK version
+        run: dotnet --version
+
+      - name: Install MAUI iOS workload
+        run: dotnet workload install maui-ios
+
+      - name: Run unit tests
+        run: dotnet test TestCore/TestCore.csproj --configuration Release
