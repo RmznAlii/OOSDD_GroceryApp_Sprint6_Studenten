@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Grocery.App.ViewModels"
+             x:Class="Grocery.App.Views.NewProductView"
+             x:DataType="vm:NewProductViewModel"
+             Title="NewProductView">
+
+    <Shell.TitleView>
+        <Grid>
+            <Label Text="Producten Toevoegen" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Shell.TitleView>
+
+    <StackLayout Padding="20" VerticalOptions="Center">
+        <Entry Placeholder="Naam *" Text="{Binding Name}"  MaximumWidthRequest="500" Margin="0,10,0, 10"/>
+        <Label Text="{Binding NameError}" TextColor="Red" HorizontalTextAlignment="Center"/>
+        <Entry Placeholder="Voorraad *" Text="{Binding Stock}"  MaximumWidthRequest="500" Margin="0,10,0, 10"/>
+        <Label Text="{Binding StockError}" TextColor="Red" HorizontalTextAlignment="Center"/>
+        <Entry Placeholder="Datum (dd-mm-yyy) *" Text="{Binding ShelfLife}" MaximumWidthRequest="500" Margin="0,10,0, 10"/>
+        <Label Text="{Binding DateError}" TextColor="Red" HorizontalTextAlignment="Center"/>
+        <Entry Placeholder="Prijs *" Text="{Binding Price}" MaximumWidthRequest="500" Margin="0,10,0, 10"/>
+        <Label Text="{Binding PriceError}" TextColor="Red" HorizontalTextAlignment="Center"/>
+
+        <Label Text="{Binding ErrorMessage}" TextColor="Red" HorizontalTextAlignment="Center"/>
+        <Button Text="Product toevoegen" Command="{Binding AddProductCommand}"  MaximumWidthRequest="500" Margin="0,10,0, 10"/>
+    </StackLayout>
+</ContentPage>

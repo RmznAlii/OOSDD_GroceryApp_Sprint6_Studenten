@@ -1,5 +1,4 @@
-﻿
-using Grocery.Core.Data.Helpers;
+﻿using Grocery.Core.Data.Helpers;
 using Microsoft.Data.Sqlite;
 
 namespace Grocery.Core.Data
